@@ -1,11 +1,31 @@
+
 import java.util.Arrays;
 
 public class bubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = { 6, 3, 0, 1, 2 };
-        bubble(arr);
+        int[] arr = { 6, 3, 0, 1, 2, 9, -3 };
+        selectionSort(arr);
         System.out.println(Arrays.toString(arr));
+    }
+
+    static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++) {
+            int max = Integer.MIN_VALUE;
+            int max_index = -1;
+            for (int j = 0; j < n - i; j++) {
+                if (arr[j] > max) {
+                    max = arr[j];
+                    max_index = j;
+                }
+            }
+            int temp = arr[max_index];
+            arr[max_index] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+
+        }
     }
 
     static void bubble(int[] arr) {
